@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignUp Page</title>
+</head>
+<body class="mainCnt" >
+
+  <!----------------------- Main Container -------------------------->
+
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <!----------------------- Login Container -------------------------->
+
+    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+
+    <!--------------------------- Left Box ----------------------------->
+
+    <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #ffffff;">
+      
+      <div class="featured-image mb-3">
+
+        <img class="img-fluid"
+          src="../../../../assets/images/signup.png" 
+          style="width: 500px;">
+      
+      </div>
+    
+    </div> 
+
+    <!-------------------- ------ Right Box ---------------------------->
+
+    <div class="col-md-6 right-box">
+    
+      <div class="row align-items-center">
+
+        <div class = "d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+          
+          <p style="color: gray">Do you have an account ready??</p>
+          
+          <button type="button" 
+            (click) = "navigateTo('/auth/signin')"
+            class="btn btn-outline-primary rounded-4 btn-sm mb-3">Let's access</button>
+        
+        </div>
+
+        <div class = "container">
+
+          <div class="header-text mb-2">
+            <h2>Do you want to register?</h2>
+            <p>We are going to make you new on the platform. Please fill in all required fields</p>
+          </div>
+      
+          <div class="input-group flex-nowrap mb-3">
+            
+            <span class="input-group-text" id="addon-wrapping">
+              <i class=" iconBtn bi bi-people"></i>
+            </span>
+            
+            <input type="text" class="form-control" 
+              placeholder="Clinic name" 
+              aria-label="Clinic name" 
+              aria-describedby="addon-wrapping"
+              [(ngModel)] = "clinic.name" name = "name">
+          
+            </div>
+      
+          <div class="input-group flex-nowrap mb-3">
+          
+            <span class="input-group-text" id="addon-wrapping">
+              <i class="bi bi-unlock"></i>
+            </span>
+          
+            <input type="password" class="form-control" 
+              placeholder="Access password" 
+              aria-label="Access password" 
+              aria-describedby="addon-wrapping"
+              [(ngModel)] = "clinic.password" name = "password">
+          
+            </div>
+      
+          <div class = "d-grid gap-2 col-6 mx-auto mt-5" >
+      
+            <button type="button" 
+              class="btn btn-primary btn-sm"
+              (click) = "registerClinic()" >
+              All set, create this clinic!
+              <i class="bi bi-check2-circle"></i></button>
+          
+          </div>
+
+        </div>
+
+      </div>
+    
+    </div> 
+
+    </div>
+  
+  </div>
+  
+</body>
+</html>
