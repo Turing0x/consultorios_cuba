@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { LoginService } from './auth/pages/login.services';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,

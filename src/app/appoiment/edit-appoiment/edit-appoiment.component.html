@@ -1,0 +1,369 @@
+<!------------------------- Main Container ------------------------->
+<div class="main_container d-flex min-vh-100" style="display: flex">
+  <!--------------------------- Left Box --------------------------->
+  <div class="left_box">
+    <div class="container top_info">
+      <p class="title_form">
+        <i class="title_icon bi bi-ui-checks"></i>
+        Form validation
+      </p>
+
+      <div class="allDivs mt-4 ms-2">
+        <div id="fieldDiv" class="divCI d-flex d-row">
+          <i
+            class="iconDone bi bi-check-circle-fill"
+            *ngIf="!inputIdentityCard.invalid; else errorIcon"
+          ></i>
+
+          <p class="fieldP">Identity card:&#160;</p>
+
+          <p class="msgP" *ngIf="!inputIdentityCard.invalid; else errorText">
+            Filled correctly
+          </p>
+        </div>
+
+        <div id="fieldDiv" class="divName d-flex d-row">
+          <i
+            class="iconDone bi bi-check-circle-fill"
+            *ngIf="!inputName.invalid; else errorIcon"
+          ></i>
+
+          <p class="fieldP">Name:&#160;</p>
+
+          <p class="msgP" *ngIf="!inputName.invalid; else errorText">
+            Filled correctly
+          </p>
+        </div>
+
+        <!-- <div id = "fieldDiv" class = " DivOccupation d-flex d-row" >
+          
+          <i class=" iconDone bi bi-check-circle-fill" *ngIf=" !inputOccupation.invalid else errorIcon" ></i>
+          
+          <p class = "fieldP" >Occupation:&#160;</p>
+          
+          <p class = "msgP" *ngIf=" !inputOccupation.invalid else errorText" > Filled correctly </p>
+        
+        </div> -->
+
+        <div id="fieldDiv" class="DivBirthdate d-flex d-row">
+          <i
+            class="iconDone bi bi-check-circle-fill"
+            *ngIf="!inputBirthdate.invalid; else errorIcon"
+          ></i>
+
+          <p class="fieldP">Birthdate:&#160;</p>
+
+          <p class="msgP" *ngIf="!inputBirthdate.invalid; else errorText">
+            Filled correctly
+          </p>
+        </div>
+
+        <div id="fieldDiv" class="DivPhoneNumber d-flex d-row">
+          <i
+            class="iconDone bi bi-check-circle-fill"
+            *ngIf="!inputPhoneNumber.invalid; else errorIcon"
+          ></i>
+
+          <p class="fieldP">Phone number:&#160;</p>
+
+          <p class="msgP" *ngIf="!inputPhoneNumber.invalid; else errorText">
+            Filled correctly
+          </p>
+        </div>
+
+        <!-- <div id = "fieldDiv" class = " DivAddress d-flex d-row" >
+          
+          <i class=" iconDone bi bi-check-circle-fill" *ngIf=" !inputAddress.invalid else errorIcon" ></i>
+          
+          <p class = "fieldP" >Address:&#160;</p>
+          
+          <p class = "msgP" *ngIf=" !inputAddress.invalid else errorText" > Filled correctly </p>
+        
+        </div> -->
+
+        <div id="fieldDiv" class="DivEMail d-flex d-row">
+          <i
+            class="iconDone bi bi-check-circle-fill"
+            *ngIf="!inputEmail.invalid; else errorIcon"
+          ></i>
+
+          <p class="fieldP">E-mail:&#160;</p>
+
+          <p class="msgP" *ngIf="!inputEmail.invalid; else errorText">
+            Filled correctly
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!------------------------ Form Buttoms ------------------------>
+    <div class="container btn_form">
+      <p *ngIf="!validateForm.invalid; else messageText">
+        It seems that you have correctly completed all the necessary fields. Now
+        decide what to do.
+      </p>
+
+      <div class="container d-flex d-row justify-content-center">
+        <button type="button" class="btn btn-outline-danger me-4">
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          [disabled]="validateForm.invalid"
+          (click)="onSubmit()"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--------------------------- Right Box --------------------------->
+  <div class="right_box container">
+    <h2>Let's create a new medical appointment</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolorem
+      iusto quae sunt. Aut, exercitationem? Quia distinctio nulla repellat
+      assumenda repellendus tempora excepturi ex, dolorum natus, cum qui
+      voluptatem iste.
+    </p>
+
+    <div class="card-body">
+      <form #validateForm="ngForm">
+        <div class="form_group_div form-group d-flex d-row">
+          <!------------------- Basic Information ------------------->
+          <div class="container basic_information">
+            <div class="inputCI container mb-4">
+              <label for="inputIdentityCard" class="form-label"
+                >Identity Card of Patient</label
+              >
+
+              <input
+                type="text"
+                class="form-control"
+                id="inputIdentityCard"
+                aria-label="infodHelpBlock"
+                name="inputIdentityCard"
+                [(ngModel)]="appo.ci"
+                #inputIdentityCard="ngModel"
+                required
+                minlength="11"
+                maxlength="11"
+                pattern="^\d+$"
+              />
+
+              <div id="infodHelpBlock" class="form-text">
+                The identification card must be an 11-digit integer, which
+                represents your unique identification at the national level
+              </div>
+            </div>
+
+            <div class="inputName container mb-4">
+              <label for="inputName" class="form-label"
+                >Full Name of patient</label
+              >
+
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                aria-label="nameHelpBlock"
+                name="inputName"
+                [(ngModel)]="appo.nombre"
+                #inputName="ngModel"
+                required
+                pattern="[a-zA-Z ]{2,254}"
+              />
+
+              <div id="nameHelpBlock" class="form-text">
+                The appo's full name must begin with a capital letter for each
+                word, be a consistent name, and contain only letters
+              </div>
+            </div>
+
+            <div class="inputName container mb-4">
+              <label for="inputName" class="form-label">Problema</label>
+
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                aria-label="nameHelpBlock"
+                name="inputName"
+                [(ngModel)]="appo.problema"
+                #inputName="ngModel"
+                required
+                pattern="[a-zA-Z ]{2,254}"
+              />
+            </div>
+
+            <!-- <div class="inputAddress container mb-4">
+              
+              <label for="inputAddress" class="form-label">Address</label>
+              
+              <input 
+              type="text" 
+              id="inputAddress" 
+              class="form-control" 
+              aria-label="addressHelpBlock"
+              name = "inputAddress"
+              [(ngModel)] = 'appo.address'
+              #inputAddress = 'ngModel'
+              required>
+              
+              <div id="addressHelpBlock" class="form-text">
+                Exact address of residence of the appo
+              </div>
+              
+            </div> -->
+
+            <!-- <div class="inputGender container mb-4">
+          
+              <label for="inputGender" class="form-label">Select a gender</label>
+              
+              <select 
+                class="form-select" 
+                aria-label="Select a gender"
+                name="inputAge"
+                [(ngModel)] = 'appo.sex'
+                #inputAge = 'ngModel'>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+              </select>
+
+              <div *ngIf="errorGenderMessage" class="alert alert-danger">{{errorGenderMessage}}</div>
+            
+            </div> -->
+          </div>
+
+          <!------------------- Contact Information ------------------->
+          <div class="container contact_information">
+            <!-- <div class="inputOccupation container mb-4">
+            
+              <label for="inputOccupation" class="form-label">Occupation</label>
+              
+              <input 
+                type="text" 
+                id="inputOccupation" 
+                class="form-control" 
+                aria-label="occupationHelpBlock"
+                name="inputOccupation"
+                [(ngModel)] = 'appo.occupation'
+                #inputOccupation = 'ngModel'
+                required
+                pattern = "[a-zA-Z ]{2,254}">
+              
+              <div id="occupationHelpBlock" class="form-text">
+                The occupation of the appo refers to the work 
+                center to which the appo is currently linked
+              </div>
+            
+            </div> -->
+
+            <div class="inputPhoneNumber container mb-4">
+              <label for="inputPhoneNumber" class="form-label"
+                >Telephone Number of patient</label
+              >
+
+              <input
+                type="tel"
+                id="inputPhoneNumber"
+                class="form-control"
+                aria-label="phoneNumberHelpBlock"
+                name="inputPhoneNumber"
+                [(ngModel)]="appo.telefono"
+                #inputPhoneNumber="ngModel"
+                required
+                pattern="^\d+$"
+              />
+
+              <div id="phoneNumberHelpBlock" class="form-text">
+                Telephone number always available to contact when necessary
+              </div>
+            </div>
+
+            <div class="inputEmail container mb-4">
+              <label for="inputEmail" class="form-label"
+                >Email address of patient</label
+              >
+
+              <input
+                type="email"
+                id="inputEmail"
+                class="form-control"
+                aria-label="emailHelpBlock"
+                name="inputEmail"
+                [(ngModel)]="appo.correo"
+                #inputEmail="ngModel"
+                required
+                ngModel
+                email="true"
+              />
+
+              <div id="emailHelpBlock" class="form-text">
+                Email address, it can be work or appoal, as long as you have
+                your synchronization active
+              </div>
+            </div>
+
+            <div class="container d-flex d-row">
+              <div class="inputBirthdate container mb-4">
+                <label for="inputBirthdate" class="form-label"
+                  >Appointment Date</label
+                >
+
+                <input
+                  type="text"
+                  id="inputBirthdate"
+                  class="form-control"
+                  name="inputBirthdate"
+                  [(ngModel)]="appo.fecha"
+                  #inputBirthdate="ngModel"
+                  required
+                />
+              </div>
+
+              <!-- <div class="inputAge container mb-4">
+              
+                <label for="inputAge" class="form-label">Age</label>
+                
+                <input 
+                  type="number" 
+                  id="inputAge" 
+                  class="form-control" 
+                  name="inputAge"
+                  [(ngModel)] = 'appo.age'
+                  #inputAge = 'ngModel'
+                  required>
+
+                  <div *ngIf="errorAgeMessage" class="alert alert-danger">{{errorAgeMessage}}</div>
+                
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--------------------------- ngTemplates --------------------------->
+
+<ng-template #errorIcon>
+  <i class="iconError bi bi-x-circle-fill"></i>
+</ng-template>
+
+<ng-template #errorText>
+  <p>Must be fill</p>
+</ng-template>
+
+<ng-template #messageText>
+  <p>
+    There are required fields pending to fill out or the information entered is
+    incorrect. Please correct the data
+  </p>
+</ng-template>
+
+<!--------------------------- ngTemplates --------------------------->

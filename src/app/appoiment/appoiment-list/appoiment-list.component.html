@@ -1,0 +1,75 @@
+<div>
+
+  <div class="main_container d-flex justify-content-between mt-5">
+  
+    <div class="only_title">
+      <h2 class="main_title">Medical Appointment's management</h2>
+      <p>Control of all medical appointments registered in the system</p>
+    </div>
+    
+    <div class="d-flex">
+    
+      <div class="search_bar me-3">
+  
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search appointment" aria-label="Search" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+    
+      </div>
+          
+      <div class="add_user_btn">
+        <div class="btn btn-primary"
+          [routerLink]="['/appoiments/create']"> 
+          <i class="bi bi-plus-circle"></i>
+          New appointment </div>
+      </div>
+    
+    </div>
+  
+  </div>
+
+  <div class = "container mt-5">
+
+    <table class="table table-striped" *ngIf = "appo_list.length !== 0">
+      <thead>
+        <tr>
+          <th scope="col">CI of patient</th>
+          <th scope="col">Name of patient</th>
+          <th scope="col">Treatment Date</th>
+          <th scope="col">Treatment Time</th>
+          <th scope="col">Cell Phone</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor = "let appo of appo_list" >
+          <td>{{ appo.ci }}</td>
+          <td>{{ appo.nombre }}</td>
+          <td>{{ appo.fecha }}</td>
+          <td>{{ appo.hora }}</td>
+          <td>{{ appo.telefono }}</td>
+          <td>
+            
+            <button type="button" class="btn btn-outline-primary btn-sm me-3"
+              [routerLink] = "['/appoiments/details', appo.appo_id]" >
+                Details</button>
+
+            <button type="button" class="btn btn-outline-success btn-sm me-3"
+              [routerLink] = "['/appoiments/edit', appo.appo_id]" >
+                Edit</button>
+            
+            <button type="button" class="btn btn-outline-danger btn-sm"
+              (click)="deleteOnePerson(appo.appo_id)"
+                >Delete</button>
+          
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

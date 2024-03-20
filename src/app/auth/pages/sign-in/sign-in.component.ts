@@ -1,31 +1,36 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { LoginService } from '../login.services';
-import { Clinic } from 'src/data/clinic';
 import swal from 'sweetalert2';
+import { UserRegister } from 'src/data/user';
 
 @Component({
   selector: 'sign-in-page',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent {
+export class SignInComponent implements OnInit {
 
-  clinic: Clinic = new Clinic()  
+  user: UserRegister = new UserRegister()
 
   constructor(
     private loginService: LoginService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ){}
-
-  navigateTo( route: string ){
-    this.router.navigate([route]);
+  ) { }
+  
+  ngOnInit(): void {
+    const userInfo = localStorage.getItem('user_login')
+    if (userInfo) {
+      this.user = new UserRegister(JSON.parse(userInfo))
+    }
   }
 
   public makeLogin(): void{
-    this.loginService.signIn(this.clinic).subscribe(
+
+    const rememberPass = (document.getElementById('formCheck') as HTMLInputElement)!.checked;
+    this.loginService.signIn(this.user).subscribe(
       success => {
 
         if( !success ){
@@ -34,14 +39,22 @@ export class SignInComponent {
           return
         }
 
+        if (rememberPass) {
+          localStorage.setItem('user_login', JSON.stringify(this.user))
+        }
+
         swal.fire( 'Action completed!', 
           `You have successfully logged in!`, 'success')
         
-        this.router.navigate(['/person/listcomplete'], 
+        this.router.navigate(['/appoiments/listcomplete'], 
           { relativeTo: this.activatedRoute })
 
       }
     )
+  }
+  
+  navigateTo( route: string ){
+    this.router.navigate([route]);
   }
 
 }

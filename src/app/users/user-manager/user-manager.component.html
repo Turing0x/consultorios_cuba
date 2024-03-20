@@ -1,0 +1,73 @@
+<div>
+
+  <div class="main_container d-flex justify-content-between mt-5">
+  
+    <div class="only_title">
+      <h2 class="main_title">Medical Appointment's management</h2>
+      <p>Control of all medical appointments registered in the system</p>
+    </div>
+    
+    <div class="d-flex">
+    
+      <div class="search_bar me-3">
+  
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search appointment" aria-label="Search" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+    
+      </div>
+          
+      <div class="add_user_btn">
+        <div class="btn btn-primary"
+          [routerLink]="['/person/create']"> 
+          <i class="bi bi-plus-circle"></i>
+          New appointment </div>
+      </div>
+    
+    </div>
+  
+  </div>
+
+  <div class = "container mt-5">
+
+    <table class="table table-striped" *ngIf = "person_list.length !== 0">
+      <thead>
+        <tr>
+          <th scope="col">CI of patient</th>
+          <th scope="col">Name of patient</th>
+          <th scope="col">Treatment Date</th>
+          <th scope="col">Cell Phone</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor = "let person of person_list" >
+          <td>{{ person.patient }}</td>
+          <td>{{ person.date }}</td>
+          <td>{{ person.time }}</td>
+          <td>{{ person.medicamento }}</td>
+          <td>
+            
+            <button type="button" class="btn btn-outline-primary btn-sm me-3"
+              [routerLink] = "['/person/details', person.patient]" >
+                Details</button>
+
+            <button type="button" class="btn btn-outline-success btn-sm me-3"
+              [routerLink] = "['/person/edit', person.patient]" >
+                Edit</button>
+            
+            <button type="button" class="btn btn-outline-danger btn-sm"
+              (click)="deleteOnePerson(person.patient)"
+                >Delete</button>
+          
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

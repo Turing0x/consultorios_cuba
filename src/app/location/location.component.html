@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignUp Page</title>
+</head>
+
+<body class="mainCnt" >
+
+  <!----------------------- Main Container -------------------------->
+
+  <div class="container d-flex justify-content-center align-items-center min-vh-100 ">
+
+    <!----------------------- Login Container -------------------------->
+
+    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+
+    <!--------------------------- Left Box ----------------------------->
+
+    <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #ffffff;">
+      
+      <div class="featured-image mb-3">
+
+        <img class="img-fluid"
+          src="../../../../assets/images/map-location.png" 
+          style="width: 500px;">
+      
+      </div>
+    
+    </div> 
+
+    <!-------------------- ------ Right Box ---------------------------->
+
+    <div class="col-md-6 right-box">
+    
+      <div class="row align-items-center">
+
+        <div class = "container">
+
+          <div class = "d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+          
+            <button type="button" 
+              (click) = "navigateTo('/auth/signin')"
+              class="btn btn-outline-danger rounded-4 btn-sm mb-3">
+                <i class="bi bi-arrow-left-short"></i> Go back</button>
+          
+          </div>
+
+          <div class="header-text mb-2 mt-5">
+            <h2>Create a new location</h2>
+            <p>The location like province and town are necessary for locate correctly the clinics</p>
+          </div>
+      
+          <div class="input-group flex-nowrap mb-3">
+
+            <div class="dropdown">
+              <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ selected_province }}
+              </a>
+
+              <ul class="dropdown-menu">
+                <li *ngFor="let province of province_list">
+                  <a class="dropdown-item" (click)="onSelectedProvince( province.nombre )" 
+                    >{{province.nombre}}</a></li>
+              </ul>
+            </div>
+          
+          </div>
+      
+          <div class="input-group flex-nowrap mb-3">
+          
+            <span class="input-group-text" id="addon-wrapping">
+              <i class="bi bi-unlock"></i>
+            </span>
+          
+            <input type="text" class="form-control" 
+              placeholder="Town name" 
+              aria-label="Town name" 
+              aria-describedby="addon-wrapping"
+              [(ngModel)] = "town.nombre" name = "nombre">
+          
+          </div>
+      
+          <div class = "d-grid gap-2 col-6 mx-auto mt-5" >
+      
+            <button type="button" 
+              class="btn btn-primary btn-sm"
+              (click) = "create_location()" >
+              All set, let’s Do It
+              <i class="bi bi-geo-alt"></i></button>
+          
+          </div>
+
+        </div>
+
+      </div>
+    
+    </div> 
+
+    </div>
+  
+  </div>
+  
+</body>
+</html>

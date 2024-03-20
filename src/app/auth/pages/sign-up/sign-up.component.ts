@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 import { LoginService } from '../login.services';
-import { Clinic } from 'src/data/clinic';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { UserRegister } from 'src/data/user';
 
 @Component({
   selector: 'sign-up-page',
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent {
 
-  clinic: Clinic = new Clinic()  
+  user: UserRegister = new UserRegister()  
 
   constructor(
     private loginService: LoginService,
@@ -24,12 +24,12 @@ export class SignUpComponent {
   }
 
   public registerClinic(): void{
-    this.loginService.registerClinic(this.clinic).subscribe(
+    this.loginService.registerUser(this.user).subscribe(
       cli => {
-        this.clinic = cli
+        this.user = cli
         swal.fire(
           'Action completed!',
-          `The clinic has been successfully registered!`,
+          `The user has been successfully registered!`,
           'success'
         )
       }

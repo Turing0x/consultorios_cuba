@@ -1,0 +1,104 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+  <div class="top_container container mt-5 d-flex d-row">
+
+    <!---------------------Picture box -------------------------------------->
+    <div class="featured-image mb-5 d-flex flex-column align-items-center">
+          
+      <img class="img-fluid"
+        src="../../../../assets/images/profile_doctor.jpg" 
+        style="width: 600px;">
+
+      <button class="btn btn-outline-success" (click)="readOnly = !readOnly">
+        Let me edit
+        <i class="bi bi-pen"></i>
+      </button>
+
+    </div>
+
+    <div class="container d-column">
+
+      <div class="d-flex d-row justify-content-between ">
+
+        <div class="">
+          <h3>{{doctor?.nombre}}</h3>
+          <h5 class="reg_med" >Medical Record: {{doctor?.reg_med}}</h5>
+        </div>
+
+        <button *ngIf="!readOnly" id="save" class="btn btn-success">
+          Save Changes
+          <i class="bi bi-check2-circle"></i>
+        </button>
+
+      </div>
+
+
+      <div class="inputAddress container mb-4 mt-4">
+              
+        <label for="inputAddress" class="form-label">Actual address</label>
+        
+        <input 
+          [class.read_only]="readOnly"
+          type="text" 
+          id="inputAddress" 
+          class="form-control" 
+          name="inputAddress"
+          [value]="doctor?.direccion"
+          [readOnly]="readOnly"
+          required>
+      
+      </div>
+
+      <div class="inputPhone container mb-4 mt-4">
+              
+        <label for="inputPhone" class="form-label">Personal Phone Number</label>
+        
+        <input
+          [class.read_only]="readOnly" 
+          type="text" 
+          id="inputPhone" 
+          class="form-control" 
+          name="inputPhone"
+          [value]="doctor?.num_telefono"
+          [readOnly]="readOnly"
+          required>
+      
+      </div>
+
+      <div class="inputClinic container mb-4 mt-4">
+              
+        <label for="inputClinic" class="form-label">Linked to the clinic</label>
+        
+        <input
+          [class.read_only]="readOnly" 
+          type="text" 
+          id="inputClinic" 
+          class="form-control" 
+          name="inputClinic"
+          [value]="doctor?.su_consultorio"
+          [readOnly]="readOnly"
+          required>
+      
+      </div>
+
+      <div class="anno_grad container mb-4 mt-4">
+              
+        <label for="anno_grad" class="form-label">Years of graduation</label>
+        
+        <input
+          [class.read_only]="readOnly" 
+          type="text" 
+          id="anno_grad" 
+          class="form-control" 
+          name="anno_grad"
+          [value]="doctor?.anno_grad"
+          [readOnly]="readOnly"
+          required>
+      
+      </div>
+  
+    </div>
+
+  </div>
+
+</div>

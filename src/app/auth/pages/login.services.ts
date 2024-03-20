@@ -3,12 +3,12 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
 
-import { Clinic } from 'src/data/clinic';
+import { UserRegister } from 'src/data/user';
 
 @Injectable()
 export class LoginService{
 
-  private url: string = 'http://localhost:8080/api/clinics'
+  private url: string = 'http://localhost:8080/api/users'
   private httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   })
@@ -17,8 +17,8 @@ export class LoginService{
     public http: HttpClient
   ){ }
 
-  registerClinic( clinic: Clinic ): Observable<Clinic>{
-    return this.http.post<Clinic>(`${this.url}/create`, clinic, {
+  registerUser( doctor: UserRegister ): Observable<UserRegister>{
+    return this.http.post<UserRegister>(this.url, doctor, {
       headers: this.httpHeaders
     }).pipe(
       catchError(e => {
@@ -32,8 +32,22 @@ export class LoginService{
       );
   }
 
-  signIn( clinic: Clinic ): Observable<boolean>{
-    return this.http.post<boolean>(`${this.url}/signIn`, clinic, {
+  signIn( doctor: UserRegister ): Observable<boolean>{
+    return this.http.post<boolean>(`${this.url}/signIn`, doctor, {
+      headers: this.httpHeaders }).pipe(
+        catchError(e => {
+          Swal.fire(
+            'Login error',
+            e.error['api_message'],
+            'error'
+          )
+          return throwError(() => e)
+        })
+      );
+  }
+
+  forgotPassword(email: string, doctor: string): Observable<object>{
+    return this.http.post<object>(`${this.url}/sendMail`, {email, doctor}, {
       headers: this.httpHeaders }).pipe(
         catchError(e => {
           Swal.fire(

@@ -1,0 +1,29 @@
+.persona_name{
+    margin-right: 15px;
+    align-items: end;
+}
+
+i {
+    margin-right: 5px;
+}
+
+.btn_edit{
+    margin-left: auto;
+}
+
+.contact_actions {
+    margin-top: 50px;
+    justify-content: space-between;
+    width: 35rem;
+}
+
+.occupation{
+    color: lightsalmon;
+    font-size: 14;
+    margin-left: 13px;
+}
+
+.info_container{
+    margin-top: 5rem;
+    justify-content: center;
+}

@@ -1,0 +1,56 @@
+.left_box{
+  background-color: white;
+  width: 30%;
+  padding-top: 45px;
+}
+
+.top_info{
+  padding-left: 70px;
+}
+
+.title_form{
+  font-size: 25px;
+}
+
+.iconDone {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: #4DD169;
+}
+
+.iconError {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: #F27D80;
+}
+
+.fieldP {
+  font-weight: 600;
+}
+
+#fieldDiv{
+  margin-bottom: 10px;
+}
+
+.btn_form {
+  padding: 40px;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+/************************ Right Box ************************/
+
+.right_box{
+  background-color: #eeeee4;
+  padding-top: 45px;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 70%;
+}
+
+.form_group_div{
+  margin-top: 30px;
+}

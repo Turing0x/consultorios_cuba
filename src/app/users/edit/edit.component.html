@@ -1,0 +1,91 @@
+<div class="main_container container ">
+
+  <div class="top_container container mt-5 d-flex d-row">
+
+    <!---------------------Picture box -------------------------------------->
+    <div class="featured-image mb-3">
+          
+      <img class="img-fluid"
+        src="../../../../assets/images/person_picture.png" 
+        style="width: 300px;">
+
+    </div>
+
+    <div class="container d-column mt-3">
+  
+      <div class="container d-flex d-row" >
+        
+        <h3 class = "persona_name" >{{cita.patient}}</h3>
+        
+        <!-- <i class="bi bi-gender-male" *ngIf="cita.sex === 'Male'; else femaleGender"></i>
+        <ng-template #femaleGender>
+          <i class="bi bi-gender-female"></i>
+        </ng-template>
+          
+        {{cita.sex}}-->
+
+        <button class = "btn_edit btn btn-success btn-sm border-0" >
+          <i class="bi bi-pencil-square"></i>
+          Confirm changes!
+        </button> 
+      
+      </div>
+
+      <p class = "occupation" > Medicamento: {{cita.medicamento}}</p>
+
+      <div class=" info_container container d-flex d-row">
+
+        <div class="basic_info container">
+
+          <p style="color: gray;" >Basic Information</p>
+  
+          <div class="container d-flex d-row ">
+            <p style = "font-weight: 500;" >Full name of patient: &#160;</p>
+            <input class="form-control" type="text" [value]="cita.patient" >
+          </div>
+  
+          <div class="container d-flex d-row ">
+            <p style = "font-weight: 500;" >Date and Time: &#160;</p>
+            <p style = "color: blue;" > {{cita.date}} - {{cita.time}} </p>
+          </div>
+
+          <div class="container d-flex d-row ">
+            <p style = "font-weight: 500;" >Doctor Name: &#160;</p>
+            <input class="form-control" type="text" [value]="cita.doctor" >
+          </div>
+
+          <div class="container d-flex d-row ">
+            <p style = "font-weight: 500;" >Observations: &#160;</p>
+            <input class="form-control" type="text" [value]="cita.observaciones" >
+          </div>
+  
+        </div>
+  
+        <div class="contact_info container">
+  
+          <p style="color: gray;" >Contact Information</p>
+  
+          <div class="container d-flex d-row ">
+            <p style = "font-weight: 500;" >Phone number: &#160;</p>
+            <input class="form-control" type="text" value="+53 53698821" >
+          </div>
+  
+          <div class="container d-flex d-row ">
+            <p style = "font-weight: 500;" >Address: &#160;</p>
+            <input class="form-control" type="text" value="correo@gmail.com" >
+          </div>
+  
+        </div>
+
+      </div>
+
+      <div class="container ms-3 mt-5 ps-1">
+        <p style="color: gray;" >Description of Treatment</p>
+        <input id="des" class="form-control" type="text" [value]="cita.observaciones" >
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

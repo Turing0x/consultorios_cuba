@@ -1,0 +1,112 @@
+<div class="main_container container ">
+
+  <div class="top_container container mt-5 d-flex d-row">
+
+    <!---------------------Picture box -------------------------------------->
+    <div class="featured-image mb-3">
+          
+      <img class="img-fluid"
+        src="../../../../assets/images/person_picture.png" 
+        style="width: 300px;">
+
+    </div>
+
+    <div class="container d-column mt-3">
+  
+      <div class="container d-flex d-row" >
+        
+        <h3 class = "persona_name" >Treatment review</h3>
+        
+        <!-- <i class="bi bi-gender-male" *ngIf="person.sex === 'Male'; else femaleGender"></i>
+        <ng-template #femaleGender>
+          <i class="bi bi-gender-female"></i>
+        </ng-template>
+          
+        {{person.sex}}
+
+        <button class = " btn_edit btn btn-primary btn-sm border-0" >
+          <i class="bi bi-pencil-square"></i>
+          Let's edit!!!
+        </button> -->
+      
+      </div>
+
+      <p class = "occupation" >{{person.occupation}}</p>
+
+      <div class=" info_container container d-flex d-row">
+
+        <div class="basic_info container">
+
+          <p style="color: gray;" >Basic Information</p>
+  
+          <div class="container d-flex d-row ">
+            
+            <p style = "font-weight: 500;" >Full name of patient: &#160;</p>
+  
+            <p style = "color: blue;" > {{cita.patient}} </p>
+  
+          </div>
+  
+          <div class="container d-flex d-row ">
+            
+            <p style = "font-weight: 500;" >Date and Time: &#160;</p>
+  
+            <p style = "color: blue;" > {{cita.date}} - {{cita.time}} </p>
+  
+          </div>
+
+          <div class="container d-flex d-row ">
+            
+            <p style = "font-weight: 500;" >Doctor Name: &#160;</p>
+  
+            <p style = "color: blue;" > {{cita.doctor}}</p>
+  
+          </div>
+
+          <div class="container d-flex d-row ">
+            
+            <p style = "font-weight: 500;" >Medicine: &#160;</p>
+  
+            <p style = "color: blue;" > {{cita.medicamento}}</p>
+  
+          </div>
+  
+        </div>
+  
+        <div class="contact_info container">
+  
+          <p style="color: gray;" >Contact Information</p>
+  
+          <div class="container d-flex d-row ">
+            
+            <p style = "font-weight: 500;" >Phone number: &#160;</p>
+  
+            <p style = "color: blue;" > +53 58887512 </p>
+  
+          </div>
+  
+          <div class="container d-flex d-row ">
+            
+            <p style = "font-weight: 500;" >Address: &#160;</p>
+  
+            <p style = "color: blue;" > correo@gmail.com </p>
+  
+          </div>
+  
+        </div>
+
+      </div>
+
+      <div class="container ms-3 mt-5 ps-1">
+
+        <p style="color: gray;" >Description of the Health Problem</p>
+
+        <p class="p-3" >{{cita.observaciones}}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

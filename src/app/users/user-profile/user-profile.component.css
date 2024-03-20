@@ -1,0 +1,17 @@
+.reg_med {
+  color: grey;
+}
+
+input {
+  width: 530px;
+}
+
+input.read_only{
+  background-color: rgb(240, 238, 238);
+}
+
+#save {
+  margin-top: 10px;
+  margin-right: 300px;
+  height: 40px;
+}
