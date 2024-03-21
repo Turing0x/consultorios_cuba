@@ -1,24 +1,22 @@
-Dosis Variable Font
-===================
+Space Grotesk Variable Font
+===========================
 
-This download contains Dosis as both a variable font and static fonts.
+This download contains Space Grotesk as both a variable font and static fonts.
 
-Dosis is a variable font with this axis:
+Space Grotesk is a variable font with this axis:
   wght
 
 This means all the styles are contained in a single file:
-  Dosis-VariableFont_wght.ttf
+  SpaceGrotesk-VariableFont_wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Dosis:
-  static/Dosis-ExtraLight.ttf
-  static/Dosis-Light.ttf
-  static/Dosis-Regular.ttf
-  static/Dosis-Medium.ttf
-  static/Dosis-SemiBold.ttf
-  static/Dosis-Bold.ttf
-  static/Dosis-ExtraBold.ttf
+in those cases you can use the static font files for Space Grotesk:
+  static/SpaceGrotesk-Light.ttf
+  static/SpaceGrotesk-Regular.ttf
+  static/SpaceGrotesk-Medium.ttf
+  static/SpaceGrotesk-SemiBold.ttf
+  static/SpaceGrotesk-Bold.ttf
 
 Get started
 -----------

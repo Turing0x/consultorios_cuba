@@ -12,7 +12,7 @@ import { UserRegister } from 'src/data/user';
 })
 export class SignUpComponent {
 
-  user: UserRegister = new UserRegister()  
+  user: UserRegister = new UserRegister()
 
   constructor(
     private loginService: LoginService,
@@ -23,7 +23,7 @@ export class SignUpComponent {
     this.router.navigate([route]);
   }
 
-  public registerClinic(): void{
+  public registerUser(): void{
     this.loginService.registerUser(this.user).subscribe(
       cli => {
         this.user = cli

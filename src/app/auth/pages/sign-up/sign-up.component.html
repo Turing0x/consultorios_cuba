@@ -1,105 +1,225 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SignUp Page</title>
-  </head>
-  <body class="mainCnt">
-    <!----------------------- Main Container -------------------------->
-
-    <div
-      class="container d-flex justify-content-center align-items-center min-vh-100"
+<!------------------------- Main Container ------------------------->
+<div class="main_container d-flex min-vh-100" style="display: flex">
+  <!--------------------------- Left Section --------------------------->
+  <div class="left_section">
+    <strong class="sleft"
+      >Administra toda tu actividad social, trabaja de manera eficiente</strong
     >
-      <!----------------------- Login Container -------------------------->
 
-      <div class="row border rounded-5 p-3 bg-white shadow box-area">
-        <!--------------------------- Left Box ----------------------------->
+    <div class="featured-image">
+      <img
+        class="img-fluid"
+        src="../../../../assets/images/nurse-doctor.png"
+        style="width: 350px"
+      />
+    </div>
+  </div>
 
-        <div
-          class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-          style="background: #ffffff"
-        >
-          <div class="featured-image mb-3">
-            <img
-              class="img-fluid"
-              src="../../../../assets/images/signup.png"
-              style="width: 500px"
-            />
-          </div>
-        </div>
+  <!--------------------------- Right Section --------------------------->
+  <section class="right_section">
+    <strong class="sright">
+      Obtnen tu cuenta gratuita dentro del sistema
+    </strong>
 
-        <!-------------------- ------ Right Box ---------------------------->
+    <p style="color: #abb5c0; font-size: 17px; width: 700px">
+      Vamos a configurarlo todo. Puede verificar su cuenta personal y comenzar a
+      configurar su perfil.
+    </p>
 
-        <div class="col-md-6 right-box">
-          <div class="row align-items-center">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-              <p style="color: gray">Do you have an account ready??</p>
-
-              <button
-                type="button"
-                (click)="navigateTo('/auth/signin')"
-                class="btn btn-outline-primary rounded-4 btn-sm mb-3"
-              >
-                Let's access
-              </button>
-            </div>
-
-            <div class="container">
-              <div class="header-text mb-2">
-                <h2>Do you want to register?</h2>
-                <p>
-                  We are going to make you new on the platform. Please fill in
-                  all required fields
-                </p>
-              </div>
-
-              <div class="input-group flex-nowrap mb-3">
-                <span class="input-group-text" id="addon-wrapping">
-                  <i class="iconBtn bi bi-people"></i>
-                </span>
-
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="User name"
-                  aria-label="User name"
-                  aria-describedby="addon-wrapping"
-                  [(ngModel)]="user.name"
-                  name="name"
-                />
-              </div>
-
-              <div class="input-group flex-nowrap mb-3">
-                <span class="input-group-text" id="addon-wrapping">
-                  <i class="bi bi-unlock"></i>
-                </span>
-
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="Access password"
-                  aria-label="Access password"
-                  aria-describedby="addon-wrapping"
-                  [(ngModel)]="user.password"
-                  name="password"
-                />
-              </div>
-
-              <div class="d-grid gap-2 col-6 mx-auto mt-5">
-                <button
-                  type="button"
-                  class="btn btn-primary btn-sm"
-                  (click)="registerClinic()"
-                >
-                  All set, create your user!
-                  <i class="bi bi-check2-circle"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="d-flex d-row">
+      <p class="me-3">Usted es:</p>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          value="0"
+          [(ngModel)]="user.occupation"
+          name="radioDoctor"
+          id="radioDoctor"
+          checked
+        />
+        <label class="form-check-label" for="radioDoctor">
+          Doctora - Doctor
+        </label>
+      </div>
+      <div class="form-check ms-5">
+        <input
+          class="form-check-input"
+          type="radio"
+          value="1"
+          [(ngModel)]="user.occupation"
+          name="radioNurse"
+          id="radioNurse"
+        />
+        <label class="form-check-label" for="radioNurse"> Enfermera </label>
       </div>
     </div>
-  </body>
-</html>
+
+    <div class="d-flex d-row">
+      <article>
+        <div class="inputRegMed mb-4">
+          <label for="inputRegNum" class="form-label"
+            >Número de Registro Médico</label
+          >
+
+          <input
+            placeholder="1234ABCD"
+            type="text"
+            [(ngModel)]="user.reg_med"
+            class="form-control"
+            id="inputRegNum"
+            name="inputRegNum"
+            required
+          />
+        </div>
+
+        <div class="inputName mb-4">
+          <label for="inputName" class="form-label">Nombre Completo</label>
+
+          <input
+            placeholder="Pedro Perez Perez"
+            type="text"
+            [(ngModel)]="user.nombre"
+            class="form-control"
+            id="inputName"
+            name="inputName"
+            required
+          />
+        </div>
+
+        <div class="inputAddre mb-4">
+          <label for="inputAddress" class="form-label"
+            >Dirección Particular</label
+          >
+
+          <input
+            placeholder="Cuidad de la Habana, Cuba"
+            type="text"
+            class="form-control"
+            [(ngModel)]="user.direccion"
+            id="inputAddress"
+            name="inputAddress"
+            required
+          />
+        </div>
+
+        <div class="inputPN mb-4">
+          <label for="inputPhoneNumber" class="form-label"
+            >Número telefónico de contacto</label
+          >
+
+          <input
+            placeholder="+53 50000000"
+            type="text"
+            class="form-control"
+            id="inputPhoneNumber"
+            [(ngModel)]="user.num_telefono"
+            aria-label="infodHelpBlock"
+            name="inputPhoneNumber"
+            required
+            minlength="12"
+            maxlength="12"
+            pattern="^\d+$"
+          />
+        </div>
+      </article>
+
+      <article>
+        <div class="inputClinicName mb-4 ms-5">
+          <label for="inputClinicName" class="form-label"
+            >Consultorio que atiende</label
+          >
+
+          <input
+            placeholder="Consultorio de la UCI"
+            type="text"
+            [(ngModel)]="user.su_consultorio"
+            class="form-control"
+            id="inputClinicName"
+            name="inputClinicName"
+            required
+          />
+        </div>
+
+        <div *ngIf="user.occupation === '0'; else forNurse">
+          <div class="inputYear mb-4 ms-5">
+            <label for="inputYear" class="form-label">Años de graduado</label>
+
+            <input
+              placeholder="13"
+              type="text"
+              [(ngModel)]="user.anno_grad"
+              class="form-control"
+              id="inputYear"
+              name="inputYear"
+              required
+            />
+          </div>
+
+          <div class="form-check form-switch ms-5">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              [(ngModel)]="user.especialista"
+              id="flexSwitchCheckChecked"
+              checked
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked"
+              >Es especialista?</label
+            >
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault">
+        Estoy de acuerdo con los Terminos de Uso y la Políca de Privacidad
+      </label>
+    </div>
+
+    <br />
+
+    <button class="btn_submit mb-2" (click)="registerUser()">
+      Crear Cuenta
+    </button>
+    <p>Ya tienes cuenta? <a href="/auth/signin">Inicia Sesión</a></p>
+  </section>
+</div>
+
+<ng-template #forNurse>
+  <div class="inputExp mb-4 ms-5">
+    <label for="inputExp" class="form-label">Años de experiencia</label>
+
+    <input
+      placeholder="13"
+      [(ngModel)]="user.anno_exp"
+      type="text"
+      class="form-control"
+      id="inputExp"
+      name="inputExp"
+      required
+    />
+  </div>
+
+  <div class="inputCat mb-4 ms-5">
+    <label for="inputCat" class="form-label">Categoría</label>
+
+    <input
+      placeholder="Enfermera con carrera técnica"
+      type="text"
+      [(ngModel)]="user.categoria"
+      class="form-control"
+      id="inputCat"
+      name="inputCat"
+      required
+    />
+  </div>
+</ng-template>

@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Dosis';
-  src: url('./assets/font/Dosis-VariableFont_wght.ttf');
+  font-family: "SpaceG";
+  src: url("./assets/font/SpaceGrotesk-VariableFont_wght.ttf");
 }
 
 a,
@@ -9,6 +9,7 @@ h2,
 h3,
 h4,
 h5,
+strong,
 h6,
 small,
 input,
@@ -16,6 +17,6 @@ span,
 input::placeholder,
 label,
 p {
-    font-family: 'Dosis';
-    font-size: larger;
+  font-family: "SpaceG";
+  font-size: larger;
 }

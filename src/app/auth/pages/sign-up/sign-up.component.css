@@ -1,49 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
-/*------------ Login container ------------*/
-
-.box-area{
-    width: 930px;
+.left_section {
+  display: flex;
+  flex-direction: column;
+  background-color: #d9f0ff;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 50px;
+  width: 30%;
+  border-right: 1px solid #b9c0c6e4;
+  align-items: center;
+  justify-content: center;
 }
 
-/*------------ Right box ------------*/
-
-.right-box{
-    padding: 40px 30px 40px 40px;
+.sleft {
+  font-size: 26px;
 }
 
-/*------------ Custom Placeholder ------------*/
+/************************ Right Box ************************/
 
-::placeholder{
-    font-size: 16px;
+.right_section {
+  padding-top: 30px;
+  padding-left: 80px;
+  width: 70%;
 }
 
-.rounded-4{
-    border-radius: 20px;
-}
-.rounded-5{
-    border-radius: 30px;
+.sright {
+  font-size: 25px;
 }
 
-.mainCnt{
-    background: #2BC0E4;
-    background: -webkit-linear-gradient(to left, #EAECC6, #2BC0E4);
-    background: linear-gradient(to left, #EAECC6, #2BC0E4);
+.form-control {
+  width: 400px;
+  height: 40px;
+  font-size: 15px;
+  font-family: "SpaceG";
 }
-/*------------ For small screens------------*/
 
-@media only screen and (max-width: 768px){
+.form-label {
+  font-weight: 500;
+}
 
-     .box-area{
-        margin: 0 10px;
+.btn_submit {
+  border-radius: 5px;
+  background-color: #ff4f5a;
+  color: white;
+  border-color: white;
+  width: 160px;
+  height: 40px;
+  font-size: 20px;
+}
 
-     }
-     .left-box{
-        height: 100px;
-        overflow: hidden;
-     }
-     .right-box{
-        padding: 20px;
-     }
+a {
+  font-size: 19px;
+  color: #6da8cc;
+}
 
+p,
+label {
+  font-size: 18px;
+}
+
+input,
+input::placeholder {
+  font: 15px "SpaceG";
 }
