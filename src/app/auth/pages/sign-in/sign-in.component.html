@@ -1,131 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SignIn Page</title>
-  </head>
-  <body class="mainCnt">
-    <!----------------------- Main Container -------------------------->
-
-    <div
-      class="container d-flex justify-content-center align-items-center min-vh-100"
-    >
-      <!----------------------- Login Container -------------------------->
-
-      <div class="row border rounded-5 p-3 bg-white shadow box-area">
-        <!--------------------------- Left Box ----------------------------->
-
-        <div
-          class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-          style="background: #ffffff"
-        >
-          <div class="featured-image mb-3">
-            <img
-              class="img-fluid"
-              src="../../../../assets/images/signin.jpg"
-              style="width: 500px"
-            />
-
-            <button
-              type="button"
-              (click)="navigateTo('/location')"
-              class="btn btn-outline-primary rounded-4 btn-sm mb-3"
-            >
-              Provinces and town
-            </button>
-          </div>
-        </div>
-
-        <!-------------------- ------ Right Box ---------------------------->
-
-        <div class="col-md-6 right-box">
-          <div class="row align-items-center">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-              <p style="color: gray">No user yet?</p>
-
-              <button
-                type="button"
-                (click)="navigateTo('/auth/signup')"
-                class="btn btn-outline-primary rounded-4 btn-sm mb-3"
-              >
-                Create user
-              </button>
-            </div>
-
-            <div class="container">
-              <div class="header-text mb-2">
-                <h2>Welcome back!</h2>
-                <p>
-                  We are happy to have you here. We are going to enter your
-                  session
-                </p>
-              </div>
-
-              <div class="input-group flex-nowrap mb-3">
-                <span class="input-group-text" id="addon-wrapping">
-                  <i class="bi bi-people"></i>
-                </span>
-
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="User name"
-                  aria-label="User name"
-                  aria-describedby="addon-wrapping"
-                  [(ngModel)]="user.nombre"
-                  name="name"
-                />
-              </div>
-
-              <div class="input-group flex-nowrap mb-3">
-                <span class="input-group-text" id="addon-wrapping">
-                  <i class="bi bi-unlock"></i>
-                </span>
-
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="Access password"
-                  aria-label="Access password"
-                  aria-describedby="addon-wrapping"
-                  [(ngModel)]="user.password"
-                  name="password"
-                />
-              </div>
-
-              <div class="input-group mb-4 d-flex justify-content-between">
-                <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="formCheck"
-                    value=""
-                  />
-                  <label for="formCheck" class="form-check-label text-secondary"
-                    ><small>Remember Me</small></label
-                  >
-                </div>
-
-                <div class="forgot">
-                  <small><a href="/auth/forgot">Forgot Password?</a></small>
-                </div>
-              </div>
-
-              <div class="d-grid gap-2 col-6 mx-auto">
-                <button
-                  type="button"
-                  class="btn btn-primary btn-sm"
-                  (click)="makeLogin()"
-                >
-                  I'm ready, sign in now
-                  <i class="bi bi-door-open"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+<!------------------------- Main Container ------------------------->
+<div class="main_container d-flex min-vh-100" style="display: flex">
+  <!--------------------------- Left Section --------------------------->
+  <div class="left_section">
+    <div class="logo">
+      <div class="featured-image-logo">
+        <img
+          class="img-fluid"
+          src="../../../../assets/images/icon_web.png"
+          style="width: 60px"
+        />
       </div>
+
+      <p class="text_logo">UCI Clinic</p>
     </div>
-  </body>
-</html>
+
+    <div class="featured-image-big">
+      <img class="img-fluid" src="../../../../assets/images/login.png" />
+    </div>
+  </div>
+
+  <!--------------------------- Right Section --------------------------->
+  <section class="right_section">
+    <strong class="sright"> !Bienvenido a UCI Clinic! 👋</strong>
+
+    <p style="color: #abb5c0; font-size: 17px">
+      Vamos a verificar su cuenta personal y comenzar a administrar sus datos.
+    </p>
+
+    <article>
+      <div class="inputUsername mb-2">
+        <label for="inputUsername" class="form-label">Nombre de usuario</label>
+
+        <input
+          placeholder="john_doe"
+          type="text"
+          [(ngModel)]="user.username"
+          class="form-control"
+          id="inputUsername"
+          name="inputUsername"
+          required
+        />
+      </div>
+
+      <div class="inputPassword mb-2">
+        <label for="inputPassword" class="form-label"
+          >Contraseña de sesión</label
+        >
+
+        <input
+          placeholder="********"
+          type="password"
+          [(ngModel)]="user.password"
+          class="form-control"
+          id="inputPassword"
+          name="inputPassword"
+          required
+        />
+      </div>
+    </article>
+
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="flexCheckChecked"
+        checked
+      />
+      <label class="form-check-label" for="flexCheckChecked">
+        Recuerdame
+      </label>
+    </div>
+
+    <br />
+
+    <button class="btn_submit mb-2" (click)="makeLogin()">Acceder</button>
+    <p>Aún no tienes cuenta? <a href="/auth/signup">Crear Cuenta</a></p>
+  </section>
+</div>

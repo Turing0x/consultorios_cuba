@@ -1,49 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
-/*------------ Login container ------------*/
-
-.box-area{
-    width: 930px;
+.left_section {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 50px;
+  width: 1300px;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-/*------------ Right box ------------*/
-
-.right-box{
-    padding: 40px 30px 40px 40px;
+.featured-image-big {
+  width: 700px;
+  object-fit: cover;
+  margin-bottom: 100px;
+  margin-left: 90px;
 }
 
-/*------------ Custom Placeholder ------------*/
-
-::placeholder{
-    font-size: 16px;
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.rounded-4{
-    border-radius: 20px;
+.text_logo {
+  color: #9356e0;
+  font-weight: 500;
+  font-size: 23px;
 }
-.rounded-5{
-    border-radius: 30px;
+
+.sleft {
+  font-size: 26px;
 }
 
-.mainCnt{
-    background: #2BC0E4;
-    background: -webkit-linear-gradient(to left, #EAECC6, #2BC0E4);
-    background: linear-gradient(to left, #EAECC6, #2BC0E4);
+/************************ Right Box ************************/
+
+.right_section {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  padding: 80px;
 }
-/*------------ For small screens------------*/
 
-@media only screen and (max-width: 768px){
+.sright {
+  font-size: 25px;
+}
 
-     .box-area{
-        margin: 0 10px;
+.form-control {
+  height: 40px;
+  font-size: 15px;
+  font-family: "SpaceG";
+}
 
-     }
-     .left-box{
-        height: 100px;
-        overflow: hidden;
-     }
-     .right-box{
-        padding: 20px;
-     }
+.form-label {
+  font-weight: 500;
+}
 
+.btn_submit {
+  border-radius: 5px;
+  background-color: #9356e0;
+  color: white;
+  border-color: white;
+  height: 40px;
+  font-size: 20px;
+}
+
+a {
+  font-size: 17px;
+  color: #9356e0;
+}
+
+p,
+label {
+  font-size: 15px;
+}
+
+input,
+input::placeholder {
+  font: 15px "SpaceG";
+}
+
+input[type="checkbox"]:enabled:checked {
+  background-color: #9356e0;
 }

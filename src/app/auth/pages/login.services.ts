@@ -32,7 +32,7 @@ export class LoginService{
       );
   }
 
-  signIn( doctor: UserRegister ): Observable<boolean>{
+  signIn( doctor: { username: string, password: string } ): Observable<boolean>{
     return this.http.post<boolean>(`${this.url}/signIn`, doctor, {
       headers: this.httpHeaders }).pipe(
         catchError(e => {

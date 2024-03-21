@@ -12,7 +12,10 @@ import { UserRegister } from 'src/data/user';
 })
 export class SignInComponent implements OnInit {
 
-  user: UserRegister = new UserRegister()
+  user: UserLogin = {
+    username: '',
+    password: ''
+  };
 
   constructor(
     private loginService: LoginService,
@@ -23,13 +26,13 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     const userInfo = localStorage.getItem('user_login')
     if (userInfo) {
-      this.user = new UserRegister(JSON.parse(userInfo))
+      this.user = JSON.parse(userInfo)
     }
   }
 
   public makeLogin(): void{
 
-    const rememberPass = (document.getElementById('formCheck') as HTMLInputElement)!.checked;
+    const rememberPass = (document.getElementById('flexCheckChecked') as HTMLInputElement)!.checked;
     this.loginService.signIn(this.user).subscribe(
       success => {
 
@@ -57,4 +60,9 @@ export class SignInComponent implements OnInit {
     this.router.navigate([route]);
   }
 
+}
+
+interface UserLogin {
+  username: string;
+  password: string;
 }
