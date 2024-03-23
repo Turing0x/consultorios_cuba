@@ -63,12 +63,15 @@
           >
 
           <input
-            placeholder="1234ABCD"
+            placeholder="97091906105"
             type="text"
             [(ngModel)]="user.reg_med"
             class="form-control"
             id="inputRegNum"
             name="inputRegNum"
+            minlength="11"
+            maxlength="11"
+            pattern="^\d+$"
             required
           />
         </div>
@@ -83,6 +86,7 @@
             class="form-control"
             id="inputName"
             name="inputName"
+            pattern="^[a-zA-Z\s]+$"
             required
           />
         </div>
@@ -109,7 +113,7 @@
           >
 
           <input
-            placeholder="+53 50000000"
+            placeholder="58-88-48-00"
             type="text"
             class="form-control"
             id="inputPhoneNumber"
@@ -117,8 +121,8 @@
             aria-label="infodHelpBlock"
             name="inputPhoneNumber"
             required
-            minlength="12"
-            maxlength="12"
+            minlength="8"
+            maxlength="8"
             pattern="^\d+$"
           />
         </div>
@@ -152,6 +156,8 @@
               class="form-control"
               id="inputYear"
               name="inputYear"
+              pattern="^\d+$"
+              maxlength="2"
               required
             />
           </div>
@@ -179,6 +185,7 @@
         type="checkbox"
         value=""
         id="flexCheckDefault"
+        checked
       />
       <label class="form-check-label" for="flexCheckDefault">
         Estoy de acuerdo con los Terminos de Uso y la Políca de Privacidad
@@ -205,6 +212,8 @@
       class="form-control"
       id="inputExp"
       name="inputExp"
+      pattern="^\d+$"
+      maxlength="2"
       required
     />
   </div>
@@ -219,6 +228,7 @@
       class="form-control"
       id="inputCat"
       name="inputCat"
+      pattern="^[a-zA-Z\s]+$"
       required
     />
   </div>

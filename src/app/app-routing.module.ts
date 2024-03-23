@@ -21,6 +21,12 @@ const routes: Routes = [
       import('././appoiment/appoiment.module')
         .then( m => m.AppoimentModule )
   },
+  // { 
+  //   path: 'dashboard',
+  //   loadChildren: () => 
+  //     import('././appoiment/appoiment.module')
+  //       .then( m => m.AppoimentModule )
+  // },
   { 
     path: 'location',
     component: LocationComponent

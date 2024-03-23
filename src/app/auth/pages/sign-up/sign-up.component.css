@@ -40,7 +40,7 @@
 
 .btn_submit {
   border-radius: 5px;
-  background-color: #ff4f5a;
+  background-color: #0088ff;
   color: white;
   border-color: white;
   width: 160px;
@@ -49,13 +49,13 @@
 }
 
 a {
-  font-size: 19px;
-  color: #6da8cc;
+  font-size: 16px;
+  color: #0088ff;
 }
 
 p,
 label {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 input,

@@ -21,6 +21,24 @@ export class ForgotPasswordComponent {
     private router: Router
   ) { }
 
+  step_list = [
+    {
+      stepNumber: "Paso 1", 
+      stepName: "Tú Email", 
+      stepStatus: "Completado"
+    },
+    {
+      stepNumber: "Paso 2", 
+      stepName: "Código al Correo", 
+      stepStatus: "Completado"
+    },
+    {
+      stepNumber: "Paso 3", 
+      stepName: "Nueva Contraseña", 
+      stepStatus: "En Progreso"
+    }
+  ]
+
   public sendRocoveryRequest(): void{
 
     const email = (document.getElementById('mail_text') as HTMLInputElement).value;

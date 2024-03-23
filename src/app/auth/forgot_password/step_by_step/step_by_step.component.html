@@ -1,0 +1,31 @@
+<div
+  class="each_step"
+  [ngClass]="{
+    completado: stepStatus === 'Completado',
+    'en-progreso': stepStatus === 'En Progreso',
+    pendiente: stepStatus === 'Pendiente'
+  }"
+>
+  <div class="d-flex d-row">
+    <ng-container [ngSwitch]="stepStatus">
+      <i
+        *ngSwitchCase="'Completado'"
+        id="i_completado"
+        class="bi bi-check-circle"
+      ></i>
+      <i
+        *ngSwitchCase="'En Progreso'"
+        id="i_en-progreso"
+        class="bi bi-stopwatch"
+      ></i>
+      <i
+        *ngSwitchCase="'Pendiente'"
+        id="i_pendiente"
+        class="bi bi-menu-button-wide"
+      ></i>
+    </ng-container>
+  </div>
+  <p class="p_step">{{ stepNumber }}</p>
+  <strong class="step_name">{{ stepName }}</strong>
+  <span class="step_status">{{ stepStatus }}</span>
+</div>

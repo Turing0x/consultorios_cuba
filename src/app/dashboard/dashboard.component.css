@@ -1,0 +1,27 @@
+.father_div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 15px;
+}
+
+.side_menu {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  justify-content: space-between;
+  padding: 50px 10px;
+}
+
+.main_div {
+  width: 100%;
+}
+
+header {
+  background-color: blue;
+}
+
+main {
+  height: 100vh;
+  background-color: green;
+}

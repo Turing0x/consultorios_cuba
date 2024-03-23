@@ -69,6 +69,12 @@
   font-size: 20px;
 }
 
+.links_pass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 a {
   font-size: 17px;
   color: #9356e0;
