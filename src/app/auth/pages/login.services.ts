@@ -46,8 +46,8 @@ export class LoginService{
       );
   }
 
-  forgotPassword(email: string, doctor: string): Observable<object>{
-    return this.http.post<object>(`${this.url}/sendMail`, {email, doctor}, {
+  forgotPassword(email: string): Observable<object>{
+    return this.http.post<object>(`${this.url}/sendMail`, {email}, {
       headers: this.httpHeaders }).pipe(
         catchError(e => {
           Swal.fire(

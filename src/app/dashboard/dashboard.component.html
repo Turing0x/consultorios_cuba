@@ -1,39 +1,85 @@
-<div class="d-flex min-vh-100">
-  <div class="father_div">
-    <section class="side_menu">
-      <div>
-        <div class="logo d-flex d-row mb-5">
-          <div class="featured-image-logo">
-            <img
-              class="img-fluid"
-              src="../../../../assets/images/icon_web.png"
-              style="width: 60px"
-            />
-          </div>
+<div class="main_container">
+  <div class="navigation">
+    <div class="top_actions">
+      <i class="bi bi-menu-app"></i>
 
-          <p class="text_logo">UCI Clinic</p>
+      <div class="three_icons d-flex d-row gap-2">
+        <a class="icon_top_action"> <i class="bi bi-search"></i></a>
+        <a class="icon_top_action"> <i class="bi bi-gear"></i></a>
+        <a class="icon_top_action"> <i class="bi bi-patch-question"></i></a>
+      </div>
+    </div>
+    <ul style="padding-left: 0">
+      <li>
+        <a href="/appoiments/listcomplete">
+          <span class="icon">
+            <i class="bi bi-house"></i>
+          </span>
+          <span class="title">Principal</span>
+        </a>
+      </li>
+      <li>
+        <a href="/appoiments/listcomplete">
+          <span class="icon">
+            <i class="bi bi-people"></i>
+          </span>
+          <span class="title">Personas</span>
+        </a>
+      </li>
+      <li>
+        <a href="/appoiments/listcomplete">
+          <span class="icon">
+            <i class="bi bi-calendar2-week"></i>
+          </span>
+          <span class="title">Calendario</span>
+        </a>
+      </li>
+    </ul>
+
+    <div style="flex-grow: 1"></div>
+    <button class="mb-5" (click)="navigateTo('/auth/signin')">
+      <span class="icon">
+        <i class="bi bi-box-arrow-right"></i>
+      </span>
+      <span class="title">Cerrar sesión</span>
+    </button>
+  </div>
+  <div class="main_div">
+    <main>
+      <header>
+        <div>
+          <h2 style="margin-bottom: 0">Buenos dias, Raulito</h2>
+          <h6 style="margin-bottom: 0; font-size: 15px">
+            Ten un dia fructífero hoy 🙌
+          </h6>
         </div>
 
-        <ul>
-          <li>Principal</li>
-          <li>Calendario</li>
-          <li>Perfil</li>
-        </ul>
-      </div>
+        <p id="time" style="margin-bottom: 0">--:--:--</p>
+      </header>
 
-      <div style="width: 100%">
-        <button
-          class="btn btn-primary"
-          style="width: 120px; height: 40px"
-          (click)="navigateTo('auth/signin')"
-        >
-          Cerrar sesion
-        </button>
-      </div>
-    </section>
-    <div class="main_div">
-      <header>header</header>
-      <main>contenido principal</main>
-    </div>
+      <section class="breaking_news">
+        <div>
+          <p class="box_title">Próximas citas</p>
+          <div class="news_box">
+            <span class="news d-flex d-row" *ngFor="let item of patients_list">
+              <div class="actions">
+                <i class="bi bi-envelope-at"></i>
+                <i class="bi bi-eye"></i>
+              </div>
+
+              <div class="news_data">
+                <strong class="news_title">{{ item.news_title }}</strong>
+                <span class="patient_name" style="font-size: 12px">{{
+                  item.patient_name
+                }}</span>
+                <span class="news_date" style="font-size: 12px">{{
+                  item.news_date
+                }}</span>
+              </div>
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 </div>

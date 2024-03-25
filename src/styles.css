@@ -1,22 +1,17 @@
 @font-face {
   font-family: "SpaceG";
-  src: url("./assets/font/SpaceGrotesk-VariableFont_wght.ttf");
+  src: url("assets/font/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
 }
 
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-strong,
-h6,
-small,
-input,
-span,
-input::placeholder,
-label,
-p {
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "SpaceG";
-  font-size: larger;
 }

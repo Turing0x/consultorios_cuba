@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { LoginService } from '../pages/login.services';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
@@ -10,7 +10,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./forgot_password.component.css'],
 })
   
-export class ForgotPasswordComponent {
+export class ForgotPasswordComponent implements OnInit {
 
   isWaitingForCode: boolean = false;
   verificationCode: string = ''
@@ -21,30 +21,15 @@ export class ForgotPasswordComponent {
     private router: Router
   ) { }
 
-  step_list = [
-    {
-      stepNumber: "Paso 1", 
-      stepName: "Tú Email", 
-      stepStatus: "Completado"
-    },
-    {
-      stepNumber: "Paso 2", 
-      stepName: "Código al Correo", 
-      stepStatus: "Completado"
-    },
-    {
-      stepNumber: "Paso 3", 
-      stepName: "Nueva Contraseña", 
-      stepStatus: "En Progreso"
-    }
-  ]
+  ngOnInit(): void {
+    this.stepManager()
+  }
 
   public sendRocoveryRequest(): void{
 
     const email = (document.getElementById('mail_text') as HTMLInputElement).value;
-    const clinic = (document.getElementById('clinic_text') as HTMLInputElement).value;
 
-    if (!email || !clinic) {
+    if (!email) {
       swal.fire('Empty field',
         'Please fill with a valid email', 'error');
       return;
@@ -56,7 +41,7 @@ export class ForgotPasswordComponent {
       return;
     }
 
-    this.loginService.forgotPassword(email, clinic).subscribe(
+    this.loginService.forgotPassword(email).subscribe(
       data => {
         this.verificationCode = Object(data)['data']['code'].toString()
         this.clinicId = Object(data)['data']['clinic']
@@ -70,7 +55,7 @@ export class ForgotPasswordComponent {
 
   public recoverPassword(): void{
 
-    const getCode = (document.getElementById('confirmationCode') as HTMLInputElement).value;
+    const getCode = (document.getElementById('code_verify') as HTMLInputElement).value;
 
     if (getCode !== this.verificationCode) {
       swal.fire('Code validation error',
@@ -90,6 +75,56 @@ export class ForgotPasswordComponent {
   navigateTo(route: string) {
     this.isWaitingForCode = false
     this.router.navigate([route]);
+  }
+
+  stepManager() {
+    const multiStepForm = document.querySelector("[data-multi-step]");
+    const dataMultiStep = document.querySelector("[data-each-step]");
+
+    if (multiStepForm && dataMultiStep) {
+
+      const formSteps = [...Array.from(multiStepForm.querySelectorAll("[data-step]"))];
+      const eachSteps = [...Array.from(dataMultiStep.querySelectorAll("[each-step]"))];
+
+      let currentStep = formSteps.findIndex((step) => {
+        return step.classList.contains("active");
+      });
+
+      if (currentStep < 0) {
+        currentStep = 0;
+        showCurrentStep();
+      }
+
+      multiStepForm.addEventListener("click", (event) => {
+
+        let incromentor
+        if (event.target) {
+          if ((event.target as Element).matches("[next-step]")) {
+            incromentor = 1
+          }
+        }
+        
+        if (incromentor == null) return;
+        
+        const inputs = [...Array.from(formSteps[currentStep].querySelectorAll("input"))];
+        const allvalid = inputs.every((input) => input.reportValidity());
+        if (allvalid) {
+          currentStep += incromentor;
+          showCurrentStep();
+        }
+      });
+
+      function showCurrentStep() {
+        formSteps.forEach((step, index) => {
+          step.classList.toggle("active", index === currentStep);
+        });
+        eachSteps.forEach((step, index) => {
+          step.classList.toggle("en-progreso", index === currentStep);
+        });
+      }
+      
+    }
+  
   }
 
 }

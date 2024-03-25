@@ -11,6 +11,7 @@ export class UserRegister {
   occupation?: string;
   username?: string;
   password?: string;
+  email?: string;
 
   constructor(user?: Partial<UserRegister>) {
     Object.assign(this, user);

@@ -91,6 +91,24 @@
           />
         </div>
 
+        <div class="inputEmail mb-4">
+          <label for="inputEmail" class="form-label"
+            >Dirección de Correo Electrónico</label
+          >
+
+          <input
+            placeholder="pedro@gmail.com"
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            [(ngModel)]="user.email"
+            aria-label="infodHelpBlock"
+            name="inputEmail"
+            required
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+          />
+        </div>
+
         <div class="inputAddre mb-4">
           <label for="inputAddress" class="form-label"
             >Dirección Particular</label
@@ -106,8 +124,10 @@
             required
           />
         </div>
+      </article>
 
-        <div class="inputPN mb-4">
+      <article>
+        <div class="inputPN mb-4 ms-5">
           <label for="inputPhoneNumber" class="form-label"
             >Número telefónico de contacto</label
           >
@@ -126,9 +146,7 @@
             pattern="^\d+$"
           />
         </div>
-      </article>
 
-      <article>
         <div class="inputClinicName mb-4 ms-5">
           <label for="inputClinicName" class="form-label"
             >Consultorio que atiende</label
