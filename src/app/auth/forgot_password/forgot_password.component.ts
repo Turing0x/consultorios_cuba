@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { LoginService } from '../pages/login.services';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
@@ -10,20 +10,42 @@ import swal from 'sweetalert2';
   styleUrls: ['./forgot_password.component.css'],
 })
   
-export class ForgotPasswordComponent implements OnInit {
+export class ForgotPasswordComponent implements AfterViewInit {
 
   isWaitingForCode: boolean = false;
   verificationCode: string = ''
   clinicId: string = ''
+
+  stepStatus1: string = 'En Progreso'
+  stepStatus2: string = 'Pendiente'
+  stepStatus3: string = 'Pendiente'
 
   constructor(
     private loginService: LoginService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.stepManager()
   }
+
+  step_list = [
+    {
+      stepNumber: "Paso 1", 
+      stepName: "Tú Email", 
+      stepStatus: this.stepStatus1
+    },
+    {
+      stepNumber: "Paso 2", 
+      stepName: "Código al Correo", 
+      stepStatus: this.stepStatus2
+    },
+    {
+      stepNumber: "Paso 3", 
+      stepName: "Nueva Contraseña", 
+      stepStatus: this.stepStatus3
+    }
+  ]
 
   public sendRocoveryRequest(): void{
 
@@ -79,12 +101,12 @@ export class ForgotPasswordComponent implements OnInit {
 
   stepManager() {
     const multiStepForm = document.querySelector("[data-multi-step]");
-    const dataMultiStep = document.querySelector("[data-each-step]");
+    const header = document.querySelector('header[data-multi-box]');
 
-    if (multiStepForm && dataMultiStep) {
+    if (multiStepForm && header) {
 
       const formSteps = [...Array.from(multiStepForm.querySelectorAll("[data-step]"))];
-      const eachSteps = [...Array.from(dataMultiStep.querySelectorAll("[each-step]"))];
+      const boxSteps = [...Array.from(header.querySelectorAll("[box-step]"))];
 
       let currentStep = formSteps.findIndex((step) => {
         return step.classList.contains("active");
@@ -103,9 +125,9 @@ export class ForgotPasswordComponent implements OnInit {
             incromentor = 1
           }
         }
-        
+
         if (incromentor == null) return;
-        
+
         const inputs = [...Array.from(formSteps[currentStep].querySelectorAll("input"))];
         const allvalid = inputs.every((input) => input.reportValidity());
         if (allvalid) {
@@ -118,9 +140,20 @@ export class ForgotPasswordComponent implements OnInit {
         formSteps.forEach((step, index) => {
           step.classList.toggle("active", index === currentStep);
         });
-        eachSteps.forEach((step, index) => {
+
+        boxSteps.forEach((step, index) => {
           step.classList.toggle("en-progreso", index === currentStep);
+          if (currentStep === 1) {
+            step.classList.toggle("completado", index === 0);
+            step.classList.toggle("pendiente", index === 2);
+          }
         });
+
+        const completado = document.getElementsByClassName('completado')
+
+
+        
+
       }
       
     }

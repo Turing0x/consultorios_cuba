@@ -1,11 +1,4 @@
-<div
-  class="each_step"
-  [ngClass]="{
-    completado: stepStatus === 'Completado',
-    'en-progreso': stepStatus === 'En Progreso',
-    pendiente: stepStatus === 'Pendiente'
-  }"
->
+<div box-step class="each_step">
   <div class="d-flex d-row">
     <ng-container [ngSwitch]="stepStatus">
       <i
