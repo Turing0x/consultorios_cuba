@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CurrentStep } from 'src/models/current_step';
+import { StepService } from 'src/services/step.service';
 
 @Component({
   selector: 'step-by-step',
@@ -6,8 +8,20 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./step_by_step.component.css'],
 })
   
-export class StepByStepComponent { 
-  @Input() stepNumber: string = '';
-  @Input() stepName: string = '';
-  @Input() stepStatus: string = '';
+export class StepByStepComponent implements OnInit { 
+
+  steps_list: CurrentStep[] = []
+
+  constructor(
+    private stepsService: StepService
+  ) { }
+
+  ngOnInit(): void {
+    this.stepsService.allSteps.subscribe(
+      list => {
+        this.steps_list = list
+      }
+    )
+  }
+
 }

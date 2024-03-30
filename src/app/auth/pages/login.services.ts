@@ -60,4 +60,18 @@ export class LoginService{
       );
   }
 
+  changePassword(email: string, password: string): Observable<object>{
+    return this.http.post<object>(`${this.url}/changePassword`, {email, password}, {
+      headers: this.httpHeaders }).pipe(
+        catchError(e => {
+          Swal.fire(
+            'Login error',
+            e.error['api_message'],
+            'error'
+          )
+          return throwError(() => e)
+        })
+      );
+  }
+
 }

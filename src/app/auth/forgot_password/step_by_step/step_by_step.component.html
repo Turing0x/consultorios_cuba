@@ -1,24 +1,14 @@
-<div box-step class="each_step">
-  <div class="d-flex d-row">
-    <ng-container [ngSwitch]="stepStatus">
-      <i
-        *ngSwitchCase="'Completado'"
-        id="i_completado"
-        class="bi bi-check-circle"
-      ></i>
-      <i
-        *ngSwitchCase="'En Progreso'"
-        id="i_en-progreso"
-        class="bi bi-stopwatch"
-      ></i>
-      <i
-        *ngSwitchCase="'Pendiente'"
-        id="i_pendiente"
-        class="bi bi-menu-button-wide"
-      ></i>
-    </ng-container>
+<div data-multi-box class="step_by_step mb-4">
+  <div
+    box-step
+    class="each_step mb-5 {{ item.icon.name }}"
+    *ngFor="let item of steps_list"
+  >
+    <div class="d-flex d-row">
+      <i id="i_{{ item.icon.name }}" class="{{ item.icon.icon }}"></i>
+    </div>
+    <p class="p_step">{{ item.step }}</p>
+    <strong class="step_name">{{ item.title }}</strong>
+    <span class="step_status">{{ item.state }}</span>
   </div>
-  <p class="p_step">{{ stepNumber }}</p>
-  <strong class="step_name">{{ stepName }}</strong>
-  <span class="step_status">{{ stepStatus }}</span>
 </div>

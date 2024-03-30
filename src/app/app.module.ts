@@ -17,7 +17,6 @@ import { LocationComponent } from './location/location.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserModule,
     HttpClientModule,
     FormsModule
   ],

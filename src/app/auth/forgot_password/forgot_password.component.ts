@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren }
 import { LoginService } from '../pages/login.services';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
+import { StepService } from 'src/services/step.service';
 
 
 @Component({
@@ -16,36 +17,17 @@ export class ForgotPasswordComponent implements AfterViewInit {
   verificationCode: string = ''
   clinicId: string = ''
 
-  stepStatus1: string = 'En Progreso'
-  stepStatus2: string = 'Pendiente'
-  stepStatus3: string = 'Pendiente'
+  provided_email: string = ''
 
   constructor(
     private loginService: LoginService,
+    private stepsService: StepService,
     private router: Router
   ) { }
 
   ngAfterViewInit(): void {
     this.stepManager()
   }
-
-  step_list = [
-    {
-      stepNumber: "Paso 1", 
-      stepName: "Tú Email", 
-      stepStatus: this.stepStatus1
-    },
-    {
-      stepNumber: "Paso 2", 
-      stepName: "Código al Correo", 
-      stepStatus: this.stepStatus2
-    },
-    {
-      stepNumber: "Paso 3", 
-      stepName: "Nueva Contraseña", 
-      stepStatus: this.stepStatus3
-    }
-  ]
 
   public sendRocoveryRequest(): void{
 
@@ -62,12 +44,14 @@ export class ForgotPasswordComponent implements AfterViewInit {
         'The provided email is not valid. Please check and correct it', 'error');
       return;
     }
-
+    
+    this.stepsService.actionsOnSteps('1', 'completed');
     this.loginService.forgotPassword(email).subscribe(
       data => {
         this.verificationCode = Object(data)['data']['code'].toString()
         this.clinicId = Object(data)['data']['clinic']
         
+        this.provided_email = email
         this.isWaitingForCode = true;
 
         return;
@@ -85,8 +69,29 @@ export class ForgotPasswordComponent implements AfterViewInit {
       return;
     }
 
-    console.log('todo en talla');
+    this.stepsService.actionsOnSteps('2', 'completed');
 
+  }
+
+  public changePassword() {
+
+    const getNew = (document.getElementById('new_password') as HTMLInputElement).value;
+    const getConfirm = (document.getElementById('two_password') as HTMLInputElement).value;
+
+    if (getNew !== getConfirm) {
+      swal.fire('Password validation error',
+        'Passwords do not match, please check both fields', 'error');
+      return;
+    }
+
+    this.loginService.changePassword(this.provided_email, getNew).subscribe(
+      result => {
+        swal.fire( 'Action completed!', 
+          'The session password has been changed successfully.', 'success')
+      }
+    )
+
+    this.stepsService.actionsOnSteps('3', 'completed');
   }
 
   public checkEmail(email: string): boolean {
@@ -101,12 +106,10 @@ export class ForgotPasswordComponent implements AfterViewInit {
 
   stepManager() {
     const multiStepForm = document.querySelector("[data-multi-step]");
-    const header = document.querySelector('header[data-multi-box]');
 
-    if (multiStepForm && header) {
+    if (multiStepForm) {
 
       const formSteps = [...Array.from(multiStepForm.querySelectorAll("[data-step]"))];
-      const boxSteps = [...Array.from(header.querySelectorAll("[box-step]"))];
 
       let currentStep = formSteps.findIndex((step) => {
         return step.classList.contains("active");
@@ -140,19 +143,6 @@ export class ForgotPasswordComponent implements AfterViewInit {
         formSteps.forEach((step, index) => {
           step.classList.toggle("active", index === currentStep);
         });
-
-        boxSteps.forEach((step, index) => {
-          step.classList.toggle("en-progreso", index === currentStep);
-          if (currentStep === 1) {
-            step.classList.toggle("completado", index === 0);
-            step.classList.toggle("pendiente", index === 2);
-          }
-        });
-
-        const completado = document.getElementsByClassName('completado')
-
-
-        
 
       }
       
