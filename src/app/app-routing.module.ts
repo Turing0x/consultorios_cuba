@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LocationComponent } from './location/location.component';
+import { MainPageComponent } from './main_page/main_page.component';
 
 const routes: Routes = [
+  { 
+    path: '',
+    component: MainPageComponent
+  },
   { 
     path: 'auth',
     loadChildren: () => 
@@ -32,7 +37,7 @@ const routes: Routes = [
     component: LocationComponent
   },
   {
-    path: '**', redirectTo: 'auth'
+    path: '**', redirectTo: ''
   }
 ]
 

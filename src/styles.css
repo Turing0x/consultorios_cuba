@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "SpaceG";
-  src: url("assets/font/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  font-family: "Quicksand";
+  src: url("assets/font/Quicksand-VariableFont_wght.ttf") format("truetype");
   font-display: swap;
 }
 
@@ -13,5 +13,5 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "SpaceG";
+  font-family: "Quicksand";
 }

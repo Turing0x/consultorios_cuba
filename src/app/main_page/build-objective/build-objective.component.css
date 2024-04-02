@@ -1,0 +1,55 @@
+.main {
+  display: flex;
+  height: 700px;
+  padding-top: 30px;
+}
+
+.left-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.sub {
+  color: #7afdef;
+  font-weight: 500;
+}
+
+.right-container {
+  width: 50%;
+  border-top-left-radius: 20px;
+  background-image: url("../../../assets/images/linda2.webp");
+  background-size: cover;
+}
+
+.other {
+  background-color: #21cdc1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 90px;
+}
+
+.done-group {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+span {
+  margin-bottom: 10px;
+}

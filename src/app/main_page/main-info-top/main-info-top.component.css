@@ -1,0 +1,32 @@
+.main-info-top {
+  height: 700px;
+  width: 100%;
+  background-image: url("../../../assets/images/main_info_top_back.webp");
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50px;
+  z-index: 1;
+}
+
+.text {
+  width: 50%;
+}
+
+p {
+  color: #001b46;
+  margin: 0;
+}
+
+.big_text {
+  font-size: 55px;
+  color: #001b46;
+  font-weight: 800;
+}
+
+.first_text {
+  font-size: 18px;
+  font-weight: 500;
+}

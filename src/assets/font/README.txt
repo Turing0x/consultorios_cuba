@@ -1,22 +1,22 @@
-Space Grotesk Variable Font
-===========================
+Quicksand Variable Font
+=======================
 
-This download contains Space Grotesk as both a variable font and static fonts.
+This download contains Quicksand as both a variable font and static fonts.
 
-Space Grotesk is a variable font with this axis:
+Quicksand is a variable font with this axis:
   wght
 
 This means all the styles are contained in a single file:
-  SpaceGrotesk-VariableFont_wght.ttf
+  Quicksand-VariableFont_wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Space Grotesk:
-  static/SpaceGrotesk-Light.ttf
-  static/SpaceGrotesk-Regular.ttf
-  static/SpaceGrotesk-Medium.ttf
-  static/SpaceGrotesk-SemiBold.ttf
-  static/SpaceGrotesk-Bold.ttf
+in those cases you can use the static font files for Quicksand:
+  static/Quicksand-Light.ttf
+  static/Quicksand-Regular.ttf
+  static/Quicksand-Medium.ttf
+  static/Quicksand-SemiBold.ttf
+  static/Quicksand-Bold.ttf
 
 Get started
 -----------

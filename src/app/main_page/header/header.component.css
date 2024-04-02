@@ -1,0 +1,61 @@
+/* Estilos para el encabezado */
+.medcity-header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Estilos para el logo */
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 24px;
+  color: #000000;
+}
+
+/* Estilos para la navegación */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.main-nav li {
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #1c2246;
+  font-weight: bold;
+}
+
+.main-nav li a:hover {
+  color: #14d7c9;
+}
+
+.login {
+  background-color: #22d2c5;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  color: white;
+  font-weight: 500;
+}
+
+.login:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
