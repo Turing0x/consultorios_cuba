@@ -24,7 +24,8 @@
 .right-container {
   width: 50%;
   border-top-left-radius: 20px;
-  background-image: url("../../../assets/images/linda2.webp");
+  background-position: -200px;
+  background-image: url("../../../assets/images/travel/medium-shot-happy-family-airport.webp");
   background-size: cover;
 }
 
